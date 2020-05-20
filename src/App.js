@@ -19,6 +19,7 @@ function App() {
           Learn React
         </a>
         <a href="https://www.jenkins.io/" target="_blank">Learn Jenkins</a>
+        <a href="https://github.com" target="_blank">Goto GitHub</a>
       </header>
     </div>
   );
