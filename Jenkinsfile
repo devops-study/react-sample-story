@@ -26,7 +26,10 @@ pipeline {
         stage('deploy') {
             steps {
                 nodejs('NodeJS_12.16.3') {
-                    sh 'npm run deploy'
+                    sh '''
+                    git config remote.origin.url git@github.com:devops-study/react-sample.git
+                    npm run deploy
+                    '''
                 }
             }
         }
