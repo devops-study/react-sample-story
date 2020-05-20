@@ -4,6 +4,9 @@ pipeline {
             image 'node:12.16.3-slim'
         }
     }
+    environment {
+        HOME = '.'
+    }
 
     stages {
         stage('prepare') {
