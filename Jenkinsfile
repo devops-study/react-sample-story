@@ -1,36 +1,33 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:12.16.3-slim'
+        }
+    }
 
     stages {
         stage('prepare') {
             steps {
-                nodejs('NodeJS_12.16.3') {
-                    sh 'npm ci'
-                }
+                cleanWs()
+                sh 'npm ci'
             }
         }
         stage('test') {
             steps {
-                nodejs('NodeJS_12.16.3') {
-                    sh 'CI=true npm test'
-                }
+                sh 'CI=true npm test'
             }
         }
         stage('build') {
             steps {
-                nodejs('NodeJS_12.16.3') {
-                    sh 'npm run build'
-                }
+                sh 'npm run build'
             }
         }
         stage('deploy') {
             steps {
-                nodejs('NodeJS_12.16.3') {
-                    sh '''
-                    git config remote.origin.url git@github.com:devops-study/react-sample.git
-                    npm run deploy
-                    '''
-                }
+                sh '''
+                git config remote.origin.url git@github.com:devops-study/react-sample.git
+                npm run deploy
+                '''
             }
         }
     }
