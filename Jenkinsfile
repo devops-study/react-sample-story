@@ -27,6 +27,8 @@ pipeline {
             steps {
                 sh '''
                 git config remote.origin.url git@github.com:devops-study/react-sample.git
+                ls -la
+                pwd
                 npm run deploy
                 '''
             }
