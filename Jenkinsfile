@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('prepare') {
             steps {
-                cleanWs()
+                sh 'ls -la'
                 sh 'npm ci'
             }
         }
