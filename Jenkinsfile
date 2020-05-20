@@ -1,8 +1,6 @@
 pipeline {
     agent {
-        docker {
-            image 'node:12.16.3-slim'
-        }
+        dockerfile true
     }
     environment {
         HOME = '.'
