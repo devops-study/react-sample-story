@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('git clone') {
-            steps {
-                git 'git@github.com:devops-study/react-sample.git'
-            }
-        }
         stage('prepare') {
             steps {
                 nodejs('NodeJS_12.16.3') {
