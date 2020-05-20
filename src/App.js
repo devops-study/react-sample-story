@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          DevOps学習用ページ
+          DevOps学習用ページ最新版
         </a>
         <a href="https://www.jenkins.io/" target="_blank">Learn Jenkins</a>
         <a href="https://github.com" target="_blank">Goto GitHub</a>
