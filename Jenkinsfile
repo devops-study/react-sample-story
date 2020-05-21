@@ -25,12 +25,14 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh '''
-                git config remote.origin.url git@github.com:devops-study/react-sample.git
-                ls -la
-                pwd
-                npm run deploy
-                '''
+                withCredentials([sshUserPrivateKey(credentialsId: 'devops', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
+                    sh '''
+                    git config remote.origin.url git@github.com:devops-study/react-sample.git
+                    ls -la
+                    pwd
+                    npm run deploy
+                    '''
+                }
             }
         }
     }
